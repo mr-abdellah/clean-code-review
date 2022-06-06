@@ -13,7 +13,8 @@ const createEl = (description, completed, index) => {
   const applyButton = document.createElement('button');
   const dots = document.createElement('img');
   const apply = document.createElement('img');
-
+  const trashBtn = document.createElement('button');
+  
   //
   heading.textContent = description;
   // Assign attributes =>
@@ -42,8 +43,7 @@ const createEl = (description, completed, index) => {
   listChild.appendChild(dotsButton);
   listChild.appendChild(applyButton);
 
-  const trashBtn = document.createElement('button');
-  trashBtn.setAttribute('id', index);
+  trashBtn.id = index;
 
   dots.addEventListener('click', () => {
     listChild.style.gridTemplateColumns = '1fr 4fr 1fr 1fr';
@@ -74,7 +74,6 @@ const createEl = (description, completed, index) => {
     // Remove func
 
     trashBtn.addEventListener('click', () => {
-      function removeFunction(listChild, trashBtn, index) {
         if (myTasks === []) return;
         myTasks.splice(index - 1, 1);
         localStorage.setItem('myTasks', JSON.stringify(myTasks));
@@ -86,8 +85,6 @@ const createEl = (description, completed, index) => {
         myTasks.forEach((task) => {
           listParent.appendChild(createEl(task.description, task.index));
         });
-      }
-      removeFunction(listChild, trashBtn, index);
     });
   });
 

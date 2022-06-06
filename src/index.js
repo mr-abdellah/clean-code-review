@@ -7,6 +7,7 @@ import displayTask from './modules/displayTask.js';
 
 const refreshImg = document.querySelector('#refresh');
 const returnImg = document.querySelector('#return');
+const refreshBtn = document.querySelector('#btnRefresh');
 
 refreshImg.src = refresh;
 returnImg.src = returny;
@@ -14,7 +15,6 @@ returnImg.src = returny;
 save();
 displayTask();
 
-const refreshBtn = document.querySelector('#btnRefresh');
 refreshBtn.addEventListener('click', () => {
   window.location.reload();
 });
